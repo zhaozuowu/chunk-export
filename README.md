@@ -4,9 +4,9 @@
 
 ## 环境要求
 
-1.Laravel 5.5
+1.Laravel 5.1以上
 
-2.PHP7.0以上
+2.PHP5.6以上
 
 
 ## 安装package
