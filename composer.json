@@ -1,0 +1,16 @@
+{
+    "name": "stephen/chunk-export",
+    "description": "A simple chunk export",
+    "authors": [
+        {
+            "name": "zhaozuowu",
+            "email": "gaofandi1236677@126.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Stephen\\Chunk\\": "src/"
+        }
+    }
+}
