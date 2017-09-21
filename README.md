@@ -11,75 +11,34 @@
 
 ## 安装package
 
+这是一个标准的 Composer 的包,你可以直接通过下面的命令行来安装:
+
 ```
 composer require stephen/chunk-export
 ```
+或者在你的 composer.json 文件中添加:
+
+"stephen/chunk-export" : "~1.0.0"
+然后执行 composer install
 
 ## 配置
 
 ### 註冊Service Provider
 
-在config/app.php中註冊ChunkServiceProvier
+在config/app.php中添加provider
 
 ```
   'providers' => [
-
-        /*
-         * Laravel Framework Service Providers...
-         */
-        Illuminate\Auth\AuthServiceProvider::class,
-        Illuminate\Broadcasting\BroadcastServiceProvider::class,
-        Illuminate\Bus\BusServiceProvider::class,
-        Illuminate\Cache\CacheServiceProvider::class,
-        Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
-        Illuminate\Cookie\CookieServiceProvider::class,
-        Illuminate\Database\DatabaseServiceProvider::class,
-        Illuminate\Encryption\EncryptionServiceProvider::class,
-        Illuminate\Filesystem\FilesystemServiceProvider::class,
-        Illuminate\Foundation\Providers\FoundationServiceProvider::class,
-        Illuminate\Hashing\HashServiceProvider::class,
-        Illuminate\Mail\MailServiceProvider::class,
-        Illuminate\Notifications\NotificationServiceProvider::class,
-        Illuminate\Pagination\PaginationServiceProvider::class,
-        Illuminate\Pipeline\PipelineServiceProvider::class,
-        Illuminate\Queue\QueueServiceProvider::class,
-        Illuminate\Redis\RedisServiceProvider::class,
-        Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
-        Illuminate\Session\SessionServiceProvider::class,
-        Illuminate\Translation\TranslationServiceProvider::class,
-        Illuminate\Validation\ValidationServiceProvider::class,
-        Illuminate\View\ViewServiceProvider::class,
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-
-        /*
-         * Package Service Providers...
-         */
-
-        /*
-         * Application Service Providers...
-         */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
         \Stephen\Chunk\ChunkServiceProvier::class,
 
     ],
 ```
 
-最后一行
-```
 
-oomusou\helloworld\HelloWorldServiceProvider::class,
+## 在laravel中使用案列
 
 ```
-
-## 使用
-
-新建一个控制器
-```
-<?php
+ <?php
 
 namespace App\Http\Controllers;
 
@@ -111,10 +70,10 @@ class Export extends Controller
 
     public function index()
     {
-        $pageSize = 10;
         $config['models'] = $this->user->select('id', 'name', 'email')->orderBy('id', 'DESC');
         $config['headers'] = ['姓名', '邮箱'];
         $config['filename'] = '用户信息.csv';
+        $pageSize = 10;
 
         $callback = function ($user) {
             $output = [];
@@ -129,6 +88,7 @@ class Export extends Controller
 
     }
 }
+
 
 ```
 
