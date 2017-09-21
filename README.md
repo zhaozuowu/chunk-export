@@ -35,7 +35,7 @@ composer require stephen/chunk-export
 ```
 
 
-## 在laravel中使用案列
+## 在laravel中使用案例
 
 ```
  <?php
