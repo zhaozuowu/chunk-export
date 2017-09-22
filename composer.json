@@ -12,5 +12,12 @@
         "psr-4": {
             "Stephen\\Chunk\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Stephen\\Chunk\\ChunkServiceProvier"
+            ]
+        }
     }
 }
